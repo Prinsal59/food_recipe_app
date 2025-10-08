@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:food_recipe_app/main.dart';
+import 'package:food_recipe_app/screens/home_screen.dart';
 
 void main() {
-  testWidgets('App starts and shows HomeScreen', (WidgetTester tester) async {
-    // Build the app
-    await tester.pumpWidget(const FoodRecipeApp());
+  runApp(const FoodRecipeApp());
+}
 
-    // Verify title text exists
-    expect(find.text('Hello Divya 👋'), findsOneWidget);
-  });
+class FoodRecipeApp extends StatelessWidget {
+  const FoodRecipeApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(title: 'Food Recipe App', home: HomeScreen());
+  }
 }

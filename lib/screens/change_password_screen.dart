@@ -2,62 +2,50 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
-  const ChangePasswordScreen({Key? key}) : super(key: key);
+  const ChangePasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final oldPasswordController = TextEditingController();
-    final newPasswordController = TextEditingController();
-    final confirmPasswordController = TextEditingController();
+    final oldPass = TextEditingController();
+    final newPass = TextEditingController();
+    final confirmPass = TextEditingController();
 
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        elevation: 0,
-        title: const Text(
-          "Change Password",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Old Password", style: TextStyle(color: Colors.white70)),
-            const SizedBox(height: 8),
-            TextField(
-              controller: oldPasswordController,
-              obscureText: true,
-              style: const TextStyle(color: Colors.white),
-              decoration: _inputDecoration("Enter old password"),
-            ),
+            Image.asset('assets/images/login_illustration.png', height: 200),
             const SizedBox(height: 20),
-
-            const Text("New Password", style: TextStyle(color: Colors.white70)),
-            const SizedBox(height: 8),
-            TextField(
-              controller: newPasswordController,
-              obscureText: true,
-              style: const TextStyle(color: Colors.white),
-              decoration: _inputDecoration("Enter new password"),
-            ),
-            const SizedBox(height: 20),
-
             const Text(
-              "Confirm Password",
-              style: TextStyle(color: Colors.white70),
+              "Change Password",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 20),
             TextField(
-              controller: confirmPasswordController,
-              obscureText: true,
+              controller: oldPass,
+              decoration: _field("Old Password"),
               style: const TextStyle(color: Colors.white),
-              decoration: _inputDecoration("Confirm new password"),
             ),
-            const SizedBox(height: 40),
-
+            const SizedBox(height: 10),
+            TextField(
+              controller: newPass,
+              decoration: _field("New Password"),
+              style: const TextStyle(color: Colors.white),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: confirmPass,
+              decoration: _field("Confirm Password"),
+              style: const TextStyle(color: Colors.white),
+            ),
+            const SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.orange,
@@ -67,16 +55,12 @@ class ChangePasswordScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                // TODO: Add validation logic here
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (_) => const HomeScreen()),
                 );
               },
-              child: const Text(
-                "Save & Continue",
-                style: TextStyle(color: Colors.white),
-              ),
+              child: const Text("Save & Continue"),
             ),
           ],
         ),
@@ -84,14 +68,14 @@ class ChangePasswordScreen extends StatelessWidget {
     );
   }
 
-  InputDecoration _inputDecoration(String hint) {
+  InputDecoration _field(String hint) {
     return InputDecoration(
       hintText: hint,
       hintStyle: const TextStyle(color: Colors.grey),
       filled: true,
       fillColor: const Color(0xFF1E1E1E),
-      border: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
       ),
     );
