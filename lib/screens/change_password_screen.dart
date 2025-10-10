@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'package:food_recipe_app/screens/home_screen.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -17,7 +17,7 @@ class ChangePasswordScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/login_illustration.png', height: 200),
+            Image.asset('assets/images/lady_image.png', height: 200),
             const SizedBox(height: 20),
             const Text(
               "Change Password",

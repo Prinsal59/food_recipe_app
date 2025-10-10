@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/data/recipe_provider.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'screens/splash_screen.dart'; // ✅ Import splash screen
-import 'package:provider/provider.dart';
-import 'data/recipe_data.dart';
-import 'screens/home_screen.dart';
+import 'screens/splash_screen.dart';
+import 'package:food_recipe_app/screens/login_screen.dart';
+import 'screens/saved_screen.dart';
+import 'package:food_recipe_app/screens/dessert_screen.dart';
+import 'package:food_recipe_app/screens/ingredients_screen.dart';
+import 'screens/notification_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const FoodRecipeApp());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FoodRecipeApp extends StatelessWidget {
+  const FoodRecipeApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Recipe App',
       debugShowCheckedModeBanner: false,
+      title: 'Food Recipe App',
       theme: ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: Colors.orange,
+        primaryColor: Colors.orange,
+        scaffoldBackgroundColor: Colors.black,
       ),
       home: const SplashScreen(),
     );
